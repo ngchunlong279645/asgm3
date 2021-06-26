@@ -22,7 +22,7 @@ import java.awt.event.ActionEvent;
 public class ManageEvent extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private static JTable table;
 	private JTextField eventName;
 	private JTextField eventDate;
 	private JTextField eventTime;
@@ -44,6 +44,10 @@ public class ManageEvent extends JFrame {
 				}
 			}
 		});
+	}
+	
+	public static JTable getTable() {
+		return table;
 	}
 
 	/**
@@ -160,8 +164,9 @@ public class ManageEvent extends JFrame {
 		submitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Event frame = new Event(model1); 
+					Event frame = new Event(); 
 					frame.setVisible(true);
+					setVisible(false);
 				} catch (Exception ee) {
 					ee.printStackTrace();
 				}

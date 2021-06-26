@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSplitPane;
 import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
 public class Finance extends JFrame {
 
@@ -23,6 +24,7 @@ public class Finance extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private static double totalDonation;
 
 	/**
 	 * Launch the application.
@@ -39,12 +41,15 @@ public class Finance extends JFrame {
 			}
 		});
 	}
+	
+	public void setDonation(double d) {
+		this.totalDonation=d;
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	public Finance() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 449);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -88,6 +93,7 @@ public class Finance extends JFrame {
 		panel_1.add(lblEventSales);
 		
 		textField = new JTextField();
+		textField.setText(Double.toString(totalDonation));
 		textField.setFont(new Font("Tekton Pro", Font.BOLD, 20));
 		textField.setBounds(157, 67, 86, 20);
 		panel_1.add(textField);

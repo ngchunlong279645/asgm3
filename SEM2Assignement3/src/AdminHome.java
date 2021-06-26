@@ -70,8 +70,7 @@ public class AdminHome extends JFrame {
 		panel.setBorder(new MatteBorder(10, 10, 10, 10, (Color) new Color(255, 105, 180)));
 		panel.setBackground(new Color(123, 104, 238));
 		panel.setBounds(0, 0, 778, 486);
-		contentPane.add(panel);
-		
+		contentPane.add(panel); 
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
 		panel_1.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 105, 180)));
@@ -134,6 +133,12 @@ public class AdminHome extends JFrame {
 		panel.add(button);
 		
 		JButton financeBtn = new JButton("");
+		financeBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Finance frame = new Finance();
+				frame.setVisible(true);
+			}
+		});
 		financeBtn.setIcon(new ImageIcon(AdminHome.class.getResource("/IMAGE/coin-us-dollar-icon.png")));
 		financeBtn.setBounds(337, 86, 96, 96);
 		panel.add(financeBtn);

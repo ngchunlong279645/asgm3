@@ -27,6 +27,7 @@ public class Donation extends JFrame {
 	private JTextField donateName;
 	private JTextField donateAmount;
 	private JTextArea textReceipt;
+	private static double total;
 
 	/**
 	 * Launch the application.
@@ -101,6 +102,11 @@ public class Donation extends JFrame {
 		JButton button_1 = new JButton("Donate");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String donation = donateAmount.getText();
+				total =Integer.parseInt(donation)+total;
+				
+				Finance frame = new Finance();
+				frame.setDonation(total);
 				textReceipt.append("===============\n");
 				textReceipt.append("____RECEIPT____\n");
 				textReceipt.append("===============\n");

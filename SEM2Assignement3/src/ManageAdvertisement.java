@@ -92,8 +92,9 @@ public class ManageAdvertisement extends JFrame {
 				
 				try {
 					Calculation obj = new Calculation();
-					Event frame = new Event(q,disc); //open event page using constructor with 4 arguments
+					Event frame = new Event(); //open event page using constructor with 4 arguments
 					frame.setVisible(true);
+					setVisible(false);
 					setVisible(false);
 				} catch (Exception ee) {
 					ee.printStackTrace();
