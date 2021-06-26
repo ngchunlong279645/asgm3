@@ -260,6 +260,8 @@ public class VolunteerTeacher extends JFrame {
 		JButton button_3 = new JButton("EXIT");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Login frame = new Login();
+				frame.setVisible(true);
 				setVisible(false);
 			}
 		});

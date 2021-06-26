@@ -44,6 +44,10 @@ public class Donation extends JFrame {
 			}
 		});
 	}
+	
+	public static double getTotal() {
+		return total;
+	}
 
 	/**
 	 * Create the frame.
@@ -105,8 +109,6 @@ public class Donation extends JFrame {
 				String donation = donateAmount.getText();
 				total =Integer.parseInt(donation)+total;
 				
-				Finance frame = new Finance();
-				frame.setDonation(total);
 				textReceipt.append("===============\n");
 				textReceipt.append("____RECEIPT____\n");
 				textReceipt.append("===============\n");

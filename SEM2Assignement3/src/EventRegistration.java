@@ -30,10 +30,10 @@ public class EventRegistration extends JFrame {
 	private JTextField name;
 	private JTextField age;
 	private JTextField quantity;
-	private JTable table;
+	private static JTable table;
 	private double price=0;
 	private String discount;
-	private double t;
+	private static double total;
 	
 	/**
 	 * Launch the application.
@@ -51,11 +51,12 @@ public class EventRegistration extends JFrame {
 		});
 	}
 	
-	public double getTotal() {
-		for(int i=0;i<table.getColumnCount();i++) {
-		t=Double.parseDouble((String) table.getValueAt(7, i))+t;	
+	public static double getTotal() {
+		for(int i=0;i<table.getRowCount();i++) {
+			String t = String.valueOf(table.getValueAt(i, 7));
+			total+=Double.parseDouble(t);
 		}
-		return t;
+		return total;
 	}
 
 	/**

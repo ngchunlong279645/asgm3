@@ -13,18 +13,22 @@ import javax.swing.JButton;
 import javax.swing.JSplitPane;
 import java.awt.SystemColor;
 import javax.swing.ImageIcon;
+import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Finance extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField totalD;
+	private JTextField totalS;
+	private JTextField totalU;
+	private JTextField totalA;
+	private JTextField totalE;
 	private static double totalDonation;
+	private JTextField totalIncome;
+	private JTextField totalExpenses;
+	private JTextField netIncome;
 
 	/**
 	 * Launch the application.
@@ -42,15 +46,13 @@ public class Finance extends JFrame {
 		});
 	}
 	
-	public void setDonation(double d) {
-		this.totalDonation=d;
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public Finance() {
-		setBounds(100, 100, 800, 449);
+		setBounds(100, 100, 647, 485);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,12 +62,12 @@ public class Finance extends JFrame {
 		panel.setLayout(null);
 		panel.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 105, 180)));
 		panel.setBackground(new Color(123, 104, 238));
-		panel.setBounds(0, 0, 784, 410);
+		panel.setBounds(0, 0, 631, 446);
 		contentPane.add(panel);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new MatteBorder(5, 5, 3, 5, (Color) new Color(0, 0, 0)));
-		panel_1.setBounds(335, 29, 253, 217);
+		panel_1.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(0, 0, 0)));
+		panel_1.setBounds(26, 25, 253, 158);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -92,34 +94,24 @@ public class Finance extends JFrame {
 		lblEventSales.setBounds(10, 114, 134, 25);
 		panel_1.add(lblEventSales);
 		
-		textField = new JTextField();
-		textField.setText(Double.toString(totalDonation));
-		textField.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField.setBounds(157, 67, 86, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		totalD = new JTextField();
+		totalD.setText(Double.toString(Donation.getTotal()));
+		totalD.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalD.setBounds(157, 67, 86, 20);
+		panel_1.add(totalD);
+		totalD.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField_1.setColumns(10);
-		textField_1.setBounds(157, 116, 86, 20);
-		panel_1.add(textField_1);
-		
-		JLabel lblOtherIncome = new JLabel("Other Income");
-		lblOtherIncome.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		lblOtherIncome.setBounds(10, 167, 134, 25);
-		panel_1.add(lblOtherIncome);
-		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField_2.setColumns(10);
-		textField_2.setBounds(157, 167, 86, 20);
-		panel_1.add(textField_2);
+		totalS = new JTextField();
+		totalS.setText(Double.toString(EventRegistration.getTotal())); 
+		totalS.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalS.setColumns(10);
+		totalS.setBounds(157, 116, 86, 20);
+		panel_1.add(totalS);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
-		panel_3.setBorder(new MatteBorder(5, 5, 3, 5, (Color) new Color(0, 0, 0)));
-		panel_3.setBounds(31, 29, 253, 313);
+		panel_3.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(0, 0, 0)));
+		panel_3.setBounds(26, 209, 253, 209);
 		panel.add(panel_3);
 		
 		JPanel panel_4 = new JPanel();
@@ -145,52 +137,124 @@ public class Finance extends JFrame {
 		lblUtility.setBounds(10, 68, 134, 25);
 		panel_3.add(lblUtility);
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField_3.setColumns(10);
-		textField_3.setBounds(154, 70, 86, 20);
-		panel_3.add(textField_3);
+		totalU = new JTextField();
+		totalU.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalU.setColumns(10);
+		totalU.setBounds(154, 70, 86, 20);
+		panel_3.add(totalU);
 		
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField_4.setColumns(10);
-		textField_4.setBounds(154, 119, 86, 20);
-		panel_3.add(textField_4);
+		totalA = new JTextField();
+		totalA.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalA.setColumns(10);
+		totalA.setBounds(154, 119, 86, 20);
+		panel_3.add(totalA);
 		
 		JLabel lblEventExpenses = new JLabel("Event Expenses");
 		lblEventExpenses.setFont(new Font("Tekton Pro", Font.BOLD, 20));
 		lblEventExpenses.setBounds(10, 173, 148, 25);
 		panel_3.add(lblEventExpenses);
 		
-		textField_5 = new JTextField();
-		textField_5.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField_5.setColumns(10);
-		textField_5.setBounds(154, 175, 86, 20);
-		panel_3.add(textField_5);
-		
-		JLabel lblOtherExpenses = new JLabel("Other Expenses");
-		lblOtherExpenses.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		lblOtherExpenses.setBounds(10, 227, 148, 25);
-		panel_3.add(lblOtherExpenses);
-		
-		textField_6 = new JTextField();
-		textField_6.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		textField_6.setColumns(10);
-		textField_6.setBounds(154, 229, 86, 20);
-		panel_3.add(textField_6);
+		totalE = new JTextField();
+		totalE.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalE.setColumns(10);
+		totalE.setBounds(154, 175, 86, 20);
+		panel_3.add(totalE);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
-		panel_5.setBorder(new MatteBorder(3, 5, 5, 5, (Color) new Color(0, 0, 0)));
-		panel_5.setBackground(SystemColor.menu);
-		panel_5.setBounds(335, 249, 253, 45);
+		panel_5.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(0, 0, 0)));
+		panel_5.setBounds(347, 25, 253, 316);
 		panel.add(panel_5);
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setLayout(null);
-		panel_6.setBorder(new MatteBorder(3, 5, 5, 5, (Color) new Color(0, 0, 0)));
-		panel_6.setBackground(SystemColor.menu);
-		panel_6.setBounds(32, 347, 253, 45);
-		panel.add(panel_6);
+		panel_6.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(0, 0, 0)));
+		panel_6.setBackground(Color.BLACK);
+		panel_6.setBounds(0, 0, 253, 45);
+		panel_5.add(panel_6);
+		
+		JLabel lblReport = new JLabel("Report");
+		lblReport.setForeground(Color.WHITE);
+		lblReport.setFont(new Font("Tekton Pro", Font.BOLD, 30));
+		lblReport.setBounds(10, 11, 233, 34);
+		panel_6.add(lblReport);
+		
+		JLabel lblTotalExpenses_1 = new JLabel("Total Expenses");
+		lblTotalExpenses_1.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		lblTotalExpenses_1.setBounds(10, 117, 134, 25);
+		panel_5.add(lblTotalExpenses_1);
+		
+		JLabel lblTotalIncome = new JLabel("Total Income\r\n");
+		lblTotalIncome.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		lblTotalIncome.setBounds(10, 68, 134, 25);
+		panel_5.add(lblTotalIncome);
+		
+		totalIncome = new JTextField();
+		totalIncome.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalIncome.setColumns(10);
+		totalIncome.setBounds(154, 70, 86, 20);
+		panel_5.add(totalIncome);
+		
+		totalExpenses = new JTextField();
+		totalExpenses.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		totalExpenses.setColumns(10);
+		totalExpenses.setBounds(154, 119, 86, 20);
+		panel_5.add(totalExpenses);
+		
+		JLabel lblNetIncome = new JLabel("Net Income");
+		lblNetIncome.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		lblNetIncome.setBounds(10, 203, 148, 25);
+		panel_5.add(lblNetIncome);
+		
+		netIncome = new JTextField();
+		netIncome.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		netIncome.setColumns(10);
+		netIncome.setBounds(154, 205, 86, 20);
+		panel_5.add(netIncome);
+		
+		JButton btnNewButton = new JButton("Reset");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				totalU.setText("");
+				totalA.setText("");
+				totalE.setText("");
+				totalIncome.setText("");
+				totalExpenses.setText("");
+				netIncome.setText("");
+			}
+		});
+		btnNewButton.setBounds(22, 272, 89, 33);
+		panel_5.add(btnNewButton);
+		btnNewButton.setBackground(Color.PINK);
+		btnNewButton.setFont(new Font("Tekton Pro", Font.BOLD, 20));
+		
+		JButton btnNewButton_1 = new JButton("Submit");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double ttlD = Double.parseDouble(totalD.getText());
+				double ttlS = Double.parseDouble(totalS.getText());
+				double ttlU = Double.parseDouble(totalU.getText());
+				double ttlA = Double.parseDouble(totalA.getText());
+				double ttlE = Double.parseDouble(totalE.getText());
+				
+				double ttlI=ttlD+ttlS;
+				double ttlX=ttlU+ttlA+ttlE;
+				double net=ttlI-ttlX;
+				
+				totalIncome.setText(Double.toString(ttlI));
+				totalExpenses.setText(Double.toString(ttlX));
+				netIncome.setText(Double.toString(net));	
+				
+			}
+		});
+		btnNewButton_1.setBounds(121, 272, 113, 33);
+		panel_5.add(btnNewButton_1);
+		btnNewButton_1.setBackground(new Color(127, 255, 212));
+		btnNewButton_1.setFont(new Font("Tekton Pro", Font.PLAIN, 20));
+		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(new Color(0, 0, 0));
+		separator.setBounds(10, 190, 230, 2);
+		panel_5.add(separator);
 	}
 }
