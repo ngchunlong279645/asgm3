@@ -106,8 +106,8 @@ public class Donation extends JFrame {
 		JButton button_1 = new JButton("Donate");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String donation = donateAmount.getText();
-				total =Integer.parseInt(donation)+total;
+				String donation = donateAmount.getText();	
+				total =Integer.parseInt(donation)+total;		// total up all the donation
 				
 				textReceipt.append("===============\n");
 				textReceipt.append("____RECEIPT____\n");

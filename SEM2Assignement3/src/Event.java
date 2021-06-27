@@ -137,9 +137,12 @@ public class Event extends JFrame {
 		panel_2.add(label);
 		
 		JTextArea txtrAbove = new JTextArea();
-		String q =ManageAdvertisement.getQ();
-		String d =ManageAdvertisement.getD();
+		
+		String q =ManageAdvertisement.getQ();		// get the quantity of discount from Manage Advertisment frame
+		String d =ManageAdvertisement.getD();		//get the discount rate from manage advertisement frame
+		if(q!=null&&d!=null) {
 		txtrAbove.setText("----------------------------------------------------------\r\n*  Above " +q+ " tickets will get "+d+" % discount                                            \r\n----------------------------------------------------------");
+		}
 		txtrAbove.setFont(new Font("Tekton Pro Ext", Font.PLAIN, 15));
 		txtrAbove.setBackground(new Color(240, 230, 140));
 		txtrAbove.setBounds(10, 35, 405, 73);
@@ -157,17 +160,20 @@ public class Event extends JFrame {
 		panel_4.add(scrollPane);
 		
 		table = new JTable();
-		JTable t = ManageEvent.getTable();
+		JTable t = ManageEvent.getTable(); 		// pass the table from manage event to this event frame
+		if(t!=null) {
 		table=t;
 		table.getColumnModel().getColumn(0).setPreferredWidth(162);
 		scrollPane.setViewportView(table);
+		}
 		
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EventRegistration frame = new EventRegistration(q, d);
+				if(q!=null&&d!=null) {
+				EventRegistration frame = new EventRegistration(q, d); // pass the quantity of discount and discount rate to event registration
 				frame.setVisible(true);
-				
+				}
 			}
 		});
 		btnNewButton_1.setBounds(697, 385, 89, 23);

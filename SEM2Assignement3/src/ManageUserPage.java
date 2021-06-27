@@ -38,15 +38,15 @@ public class ManageUserPage extends JFrame {
 		});
 	}
 	
-	public static JTextArea getDS() {
+	public static JTextArea getDS() {		// get description
 		return description;
 	}
 	
-	public static  JTextArea getVS() {
+	public static  JTextArea getVS() {		//get vision
 		return vision;
 	}
 	
-	public static  JTextArea getMS() {
+	public static  JTextArea getMS() {		//get mission
 		return mission;
 	}
 

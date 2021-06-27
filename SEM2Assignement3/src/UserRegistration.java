@@ -28,7 +28,7 @@ public class UserRegistration extends JFrame {
 	private JTextField username;
 	private JTextField pass;
 	private JTextField cfmpass;
-	private JTable table;
+	 JTable table;
 	private static String name,psw;
 
 	/**
@@ -119,7 +119,7 @@ public class UserRegistration extends JFrame {
 		cfmpass.setBounds(154, 134, 127, 20);
 		panel.add(cfmpass);
 		
-		JButton resetButton = new JButton("Reset");
+		JButton resetButton = new JButton("Reset");		// reset the text box
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				username.setText("");
@@ -130,11 +130,11 @@ public class UserRegistration extends JFrame {
 		resetButton.setBounds(74, 194, 89, 23);
 		panel.add(resetButton);
 		
-		JButton registerButton = new JButton("Register");
+		JButton registerButton = new JButton("Register");		// user first time register
 		registerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
-				SimpleDateFormat date = new SimpleDateFormat("dd:MMM:yyyy");
+				SimpleDateFormat date = new SimpleDateFormat("dd:MMM:yyyy");	// display the date
 				
 		
 				if(!pass.getText().equals(cfmpass.getText())) {
@@ -151,7 +151,7 @@ public class UserRegistration extends JFrame {
 				for (int i = 0 ; i < model.getRowCount() ; i++) { //use i - read only the current update of row/data
 																// null or not Integer will throw exception
 			        name = String.valueOf(model.getValueAt(i, 0));
-			        psw = String.valueOf(model.getValueAt(i, 1));
+			        psw = String.valueOf(model.getValueAt(i, 1));	
 				}
 			
 			}
@@ -164,8 +164,8 @@ public class UserRegistration extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				Login frame = new Login();		//display login page
-				frame.setUserName(name);	
-				frame.setPassword(psw);	
+				frame.setUserName(name);		
+				frame.setPassword(psw);			// pass the name and password to login frame using setter
 				frame.setVisible(true);
 				setVisible(false);
 			}

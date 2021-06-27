@@ -51,20 +51,23 @@ public class EventRegistration extends JFrame {
 		});
 	}
 	
-	public static double getTotal() {
+	public static double getTotal() {					// using looping to count the total sales of event
+		if(table!=null) {
 		for(int i=0;i<table.getRowCount();i++) {
 			String t = String.valueOf(table.getValueAt(i, 7));
 			total+=Double.parseDouble(t);
 		}
-		return total;
+		}
+		return total;		// return in double
 	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	EventRegistration(){};
-	public EventRegistration(String q,String d) {
-		JTable tt = ManageEvent.getTable();
+	public EventRegistration(String q,String d) {	// constructor with 2 argm
+		JTable tt = ManageEvent.getTable();			// get the table from Manage Event Frame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 856, 549);
@@ -138,7 +141,7 @@ public class EventRegistration extends JFrame {
 		panel_2.add(gender);
 		
 		JComboBox event = new JComboBox();
-		event.setModel(new DefaultComboBoxModel(new String[] {"Make a selection", String.valueOf( tt.getValueAt(0, 0)), String.valueOf( tt.getValueAt(1, 0)), String.valueOf( tt.getValueAt(2, 0)),String.valueOf( tt.getValueAt(3, 0))}));
+		event.setModel(new DefaultComboBoxModel(new String[] {"Make a selection", String.valueOf( tt.getValueAt(0, 0)), String.valueOf( tt.getValueAt(1, 0)), String.valueOf( tt.getValueAt(2, 0))}));
 		event.setFont(new Font("Tahoma", Font.BOLD, 11));
 		event.setBounds(98, 133, 129, 20);
 		panel_2.add(event);
@@ -166,8 +169,8 @@ public class EventRegistration extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				
-				if(event.getSelectedItem().equals(String.valueOf( tt.getValueAt(0, 0)))) {
-					String p =String.valueOf( tt.getValueAt(0, 4));
+				if(event.getSelectedItem().equals(String.valueOf( tt.getValueAt(0, 0)))) {  // event name
+					String p =String.valueOf( tt.getValueAt(0, 4));							//set price
 					price=Integer.parseInt(p);
 				}
 				else if(event.getSelectedItem().equals(String.valueOf( tt.getValueAt(1, 0)))) {
@@ -178,14 +181,11 @@ public class EventRegistration extends JFrame {
 					String p =String.valueOf( tt.getValueAt(2, 4));
 					price=Integer.parseInt(p);
 				}
-				else {
-					String p =String.valueOf( tt.getValueAt(3, 4));
-					price=Integer.parseInt(p);
-				}
 				
-				Calculation cal = new Calculation();
-				cal.setDiscount(Integer.parseInt(d));
-				cal.setQuantity(Integer.parseInt(q));
+				
+				Calculation cal = new Calculation();	// use calculation class to count total price 
+				cal.setDiscount(Integer.parseInt(d));	//set discount 
+				cal.setQuantity(Integer.parseInt(q));	//set quantity
 				double totalPrice=cal.totalPrice(price, Integer.parseInt( quantity.getText()));
 				if(Integer.parseInt( quantity.getText())>Integer.parseInt(q)) {
 					discount=d+"%";
@@ -281,7 +281,7 @@ public class EventRegistration extends JFrame {
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("D:\\SEM 2\\PROGRAMMING 2\\testing\\test.txt");
+					File file = new File("C:\\Users\\Ivy Ng\\Desktop\\java tutorials\\SEM2Assignement3\\src\\eventRegisterList.txt");
 					if(!file.exists()) {
 						file.createNewFile();
 						}
@@ -323,10 +323,7 @@ public class EventRegistration extends JFrame {
 					String p =String.valueOf( tt.getValueAt(2, 4));
 					price=Integer.parseInt(p);
 				}
-				else {
-					String p =String.valueOf( tt.getValueAt(3, 4));
-					price=Integer.parseInt(p);
-				}
+				
 				Calculation cal = new Calculation();
 				cal.setDiscount(Integer.parseInt(d));
 				cal.setQuantity(Integer.parseInt(q));

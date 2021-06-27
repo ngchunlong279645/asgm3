@@ -60,7 +60,7 @@ public class Main extends JFrame {
 		JButton button_5 = new JButton("Login in");
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login frame = new Login();	
+				Login frame = new Login();	// call out login frame
 				frame.setVisible(true);
 				setVisible(false);
 			}
@@ -166,7 +166,7 @@ public class Main extends JFrame {
 		JButton button_4 = new JButton("JOIN US ! !");
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserRegistration frame = new UserRegistration();	
+				UserRegistration frame = new UserRegistration();	// call out user registration frame
 				frame.setVisible(true);
 				setVisible(false);
 			}

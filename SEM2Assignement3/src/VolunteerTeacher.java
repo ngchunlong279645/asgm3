@@ -287,7 +287,7 @@ public class VolunteerTeacher extends JFrame {
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("D:\\SEM 2\\PROGRAMMING 2\\testing\\teacher.txt");
+					File file = new File("C:\\Users\\Ivy Ng\\Desktop\\java tutorials\\SEM2Assignement3\\src\\teacherList.txt");
 					if(!file.exists()) {
 						file.createNewFile();
 						}
@@ -324,7 +324,7 @@ public class VolunteerTeacher extends JFrame {
 			    	model1.setValueAt(teacherAge.getText(),i,1);
 			    	model1.setValueAt(teacherGender.getSelectedItem(),i,2);
 			    	model1.setValueAt(teacherSubject.getSelectedItem(),i,3);
-			    	model1.setValueAt(teacherEmail,i,4);
+			    	model1.setValueAt(teacherEmail.getText(),i,4);
 					JOptionPane.showMessageDialog(null, "Update Successfully");
 			    }
 			    else 

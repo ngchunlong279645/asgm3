@@ -91,11 +91,11 @@ public class ManageAdvertisement extends JFrame {
 				disc=discountR.getText();
 				
 				try {
-					Calculation obj = new Calculation();
+				
 					Event frame = new Event(); //open event page using constructor with 4 arguments
 					frame.setVisible(true);
 					setVisible(false);
-					setVisible(false);
+					
 				} catch (Exception ee) {
 					ee.printStackTrace();
 				}
@@ -109,11 +109,11 @@ public class ManageAdvertisement extends JFrame {
 		panel.add(btnSubmit);
 	}
 	
-	public static String getQ() {
+	public static String getQ() {	// get promotion quantity
 		return q;
 	}
 	
-	public static String getD() {
+	public static String getD() {	// get discount rate
 		return disc;
 	}
 

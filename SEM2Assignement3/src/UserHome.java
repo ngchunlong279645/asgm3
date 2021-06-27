@@ -74,6 +74,7 @@ public class UserHome extends JFrame {
 		lblEvent.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				
 				Event frame = new Event() ;
 				frame.setVisible(true);
 				setVisible(false);
@@ -129,8 +130,10 @@ public class UserHome extends JFrame {
 		panel.add(label);
 		
 		txtrSolsIs = new JTextArea();
-		JTextArea d =ManageUserPage.getDS();
-		txtrSolsIs=d;
+		JTextArea d =ManageUserPage.getDS();	// get the description text from ManageUser
+		if(d!=null) {
+		txtrSolsIs=d;		
+		}
 		//txtrSolsIs.setText("SOLS 24/7 is a leading in-person and online education provider for the\r\npoor. Starting out as experts in teaching English to those with zero or \r\nvery basic English proficiency, we have since branched out to \r\nencompass Employable English skills for school, university, business \r\npurposes as well as becoming a job preparation and digital education \r\nprovider.");
 		txtrSolsIs.setForeground(Color.WHITE);
 		txtrSolsIs.setFont(new Font("Tekton Pro Ext", Font.BOLD, 15));
@@ -145,8 +148,10 @@ public class UserHome extends JFrame {
 		panel.add(label_1);
 		
 		txtrSolsEnvisions = new JTextArea();
-		JTextArea v =ManageUserPage.getVS();
+		JTextArea v =ManageUserPage.getVS();	// get the vision text from ManageUser
+		if(v!=null) {
 		txtrSolsEnvisions=v;
+		}
 		//txtrSolsEnvisions.setText("SOLS 24/7 envisions that people from all \r\ncommunities \u2013 regardless of race, \r\nreligion or gender \u2013 will have access to \r\neducation and social empowerment \r\nservices, resulting in developed societies \r\nwith equal opportunities for all.");
 		txtrSolsEnvisions.setForeground(Color.WHITE);
 		txtrSolsEnvisions.setFont(new Font("Tekton Pro", Font.BOLD, 16));
@@ -161,8 +166,10 @@ public class UserHome extends JFrame {
 		panel.add(label_2);
 		
 		txtrOurMissionIs = new JTextArea();
-		JTextArea m =ManageUserPage.getMS();
+		JTextArea m =ManageUserPage.getMS();	// get mission text from ManageUser
+		if(m!=null) {
 		txtrOurMissionIs=m;
+		}
 		//txtrOurMissionIs.setText("Our mission is to serve, educate \r\n& empower the bottom 40% of \r\nthe population with FREE \r\neducation, personal \r\ndevelopment & employment \r\nsupport.");
 		txtrOurMissionIs.setForeground(Color.WHITE);
 		txtrOurMissionIs.setFont(new Font("Tekton Pro", Font.BOLD, 15));

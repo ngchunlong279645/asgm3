@@ -95,14 +95,14 @@ public class Finance extends JFrame {
 		panel_1.add(lblEventSales);
 		
 		totalD = new JTextField();
-		totalD.setText(Double.toString(Donation.getTotal()));
+		totalD.setText(Double.toString(Donation.getTotal()));	// get the total donation from donation frame
 		totalD.setFont(new Font("Tekton Pro", Font.BOLD, 20));
 		totalD.setBounds(157, 67, 86, 20);
 		panel_1.add(totalD);
 		totalD.setColumns(10);
 		
 		totalS = new JTextField();
-		totalS.setText(Double.toString(EventRegistration.getTotal())); 
+		totalS.setText(Double.toString(EventRegistration.getTotal())); 		// get the total event sales from event registration frame
 		totalS.setFont(new Font("Tekton Pro", Font.BOLD, 20));
 		totalS.setColumns(10);
 		totalS.setBounds(157, 116, 86, 20);
@@ -231,15 +231,15 @@ public class Finance extends JFrame {
 		JButton btnNewButton_1 = new JButton("Submit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				double ttlD = Double.parseDouble(totalD.getText());
-				double ttlS = Double.parseDouble(totalS.getText());
-				double ttlU = Double.parseDouble(totalU.getText());
-				double ttlA = Double.parseDouble(totalA.getText());
-				double ttlE = Double.parseDouble(totalE.getText());
+				double ttlD = Double.parseDouble(totalD.getText());	// total donation
+				double ttlS = Double.parseDouble(totalS.getText());	//total Sales
+				double ttlU = Double.parseDouble(totalU.getText());//total utility
+				double ttlA = Double.parseDouble(totalA.getText());//total advertisemnet expenses
+				double ttlE = Double.parseDouble(totalE.getText());//total event expenses
 				
-				double ttlI=ttlD+ttlS;
-				double ttlX=ttlU+ttlA+ttlE;
-				double net=ttlI-ttlX;
+				double ttlI=ttlD+ttlS;		//total income
+				double ttlX=ttlU+ttlA+ttlE; //total expenses
+				double net=ttlI-ttlX;	//net income
 				
 				totalIncome.setText(Double.toString(ttlI));
 				totalExpenses.setText(Double.toString(ttlX));

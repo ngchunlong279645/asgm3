@@ -44,11 +44,11 @@ public class Login extends JFrame {
 		});
 	}
 	
-	public void setUserName(String name) {
+	public void setUserName(String name) {   // set the user name 
 		this.username=name;
 	}
 	
-	public void setPassword(String pass) {
+	public void setPassword(String pass) {	// set the password 
 		this.password=pass;
 	}
 
@@ -108,14 +108,14 @@ public class Login extends JFrame {
 					if(UserNameTextField.getText().equals("A") && PasswordTextField.getText().equals("a")&&loginAs.getSelectedItem().equals("Admin")) {
 						JOptionPane.showMessageDialog(null, "Login Succesful");
 						
-						AdminHome frame = new AdminHome(); //calling another frame/window
+						AdminHome frame = new AdminHome(); //calling admin frame/window
 						frame .setModalExclusionType(null);
 						frame.setVisible(true);
 						setVisible(false);
 					}
 					else if(UserNameTextField.getText().equals(username) && PasswordTextField.getText().equals(password)&&loginAs.getSelectedItem().equals("User")) {
 						JOptionPane.showMessageDialog(null, "Login Succesful");
-						UserHome frame = new UserHome();
+						UserHome frame = new UserHome();	// calling user frame
 						frame.setModalExclusionType(null);
 						frame.setVisible(true);
 						setVisible(false);
