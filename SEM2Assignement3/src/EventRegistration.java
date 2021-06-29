@@ -183,7 +183,7 @@ public class EventRegistration extends JFrame {
 				}
 				
 				
-				Calculation cal = new Calculation();	// use calculation class to count total price 
+				CAL cal = new Calculation();	// use calculation class to count total price 
 				cal.setDiscount(Integer.parseInt(d));	//set discount 
 				cal.setQuantity(Integer.parseInt(q));	//set quantity
 				double totalPrice=cal.totalPrice(price, Integer.parseInt( quantity.getText()));
@@ -324,7 +324,7 @@ public class EventRegistration extends JFrame {
 					price=Integer.parseInt(p);
 				}
 				
-				Calculation cal = new Calculation();
+				CAL cal = new Calculation();
 				cal.setDiscount(Integer.parseInt(d));
 				cal.setQuantity(Integer.parseInt(q));
 				double totalPrice=cal.totalPrice(price, Integer.parseInt( quantity.getText()));

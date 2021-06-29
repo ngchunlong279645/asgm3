@@ -1,5 +1,5 @@
 
-public class Calculation {
+public class Calculation implements CAL {
 	private double discount=10;
 	private double qq=2;
 	
